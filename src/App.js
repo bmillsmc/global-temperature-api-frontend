@@ -1,24 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import { Route, Link } from "react-router-dom";
+import "./App.css";
+import { tsPropertySignature } from "@babel/types";
+
+//use react router to create routes within the page for different things
+//maybe conside making this a class for state? or maybe make index a class? need state for which page of countries you're on
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <nav>
+        <Link to="/">
+          <h1>Global Temperatures</h1>
+        </Link>
+      </nav>
+      <main>
+        <Route
+          path="/"
+          exact
+          render={() => {
+            <Home countries={props.countries} />;
+          }}
+        />
+        <Route
+          path="/:country"
+          render={routerProps => {
+            <Country {...routerProps} countries={props.countries} />;
+          }}
+        />
+      </main>
     </div>
   );
 }
