@@ -1,12 +1,7 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import "./Delete.css";
 
 class Delete extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   handleYes() {
     //send delete request to api for this.props.match.params.country
   }

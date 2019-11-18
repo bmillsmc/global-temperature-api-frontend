@@ -132,6 +132,7 @@ class App extends Component {
             render={() => {
               return <Create url={this.state.url} />;
             }}
+            exact
           />
           <Route
             path="/add/:country"
@@ -141,6 +142,7 @@ class App extends Component {
           />
           <Route
             path="/update"
+            exact
             render={() => {
               return (
                 <Index
@@ -167,6 +169,7 @@ class App extends Component {
           />
           <Route
             path="/delete"
+            exact
             render={() => {
               return (
                 <Index

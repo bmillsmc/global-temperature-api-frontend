@@ -1,0 +1,14 @@
+.page-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.page-box * {
+  height: 100%;
+}
+
+.page-box p {
+  margin: 0 5px;
+}

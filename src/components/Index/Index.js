@@ -25,9 +25,9 @@ class Index extends Component {
   render() {
     let countryInputs;
     if (this.props.countries.data) {
-      countryInputs = this.props.countries.data.map(country => {
+      countryInputs = this.props.countries.data.map((country, index) => {
         return (
-          <Link to={"/" + this.props.type + "/" + country.country}>
+          <Link to={"/" + this.props.type + "/" + country.country} key={index}>
             <input type="button" value={country.country} />
           </Link>
         );
@@ -51,6 +51,10 @@ class Index extends Component {
 
     return (
       <div className="index-box">
+        <h2>
+          {this.props.type.charAt(0).toUpperCase() +
+            this.props.type.substr(1).toLowerCase()}
+        </h2>
         <div className="country-div">{countryInputs}</div>
         <div className="page-box">
           {prevButton}
