@@ -37,11 +37,12 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
-  handlePageChangeNext(buttonEl) {
+  async handlePageChangeNext(buttonEl) {
     //TODO: merge these into one method, handlePageChange(), that checks for the value of buttons text, if its "prev" (use tolowercase) then it subtract and does what the prev button is supposed to do ie disable and if its "next" then vice versa
     //takes a button element (probably an input) reference and if the next time it will be pressed shouldnt happen (ie there is no next page) then it disables it. also increments the page and fetches the next 10 countries into state
-    this.setState({
-      page: this.state.page++
+    let pageNum = this.state.page;
+    await this.setState({
+      page: pageNum + 1
     });
     fetch(this.state.url + "?page=" + this.state.page)
       .then(res => res.json())
@@ -57,10 +58,11 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
-  handlePageChangePrev(buttonEl) {
+  async handlePageChangePrev(buttonEl) {
     //takes a button element (probably an input) reference and if the next time it will be pressed shouldnt happen (ie the page number is 1) then it disables it
-    this.setState({
-      page: this.state.page--
+    let pageNum = this.state.page;
+    await this.setState({
+      page: pageNum - 1
     });
     fetch(this.state.url + "?page=" + this.state.page)
       .then(res => res.json())

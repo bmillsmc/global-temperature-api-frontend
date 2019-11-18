@@ -25,7 +25,6 @@ class Country extends Component {
 
   render() {
     //TODO: implement plotly to graph temperature data for country
-    console.log(this.state.country);
     let countryString = JSON.stringify(this.state.country);
     let countryName = this.state.country.country;
     return (

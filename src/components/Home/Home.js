@@ -14,8 +14,8 @@ class Home extends Component {
         countries={this.props.countries}
         type="country"
         page={this.props.page}
-        onPageChangeNext={this.props.handlePageChangeNext}
-        onPageChangePrev={this.props.handlePageChangePrev}
+        onPageChangeNext={this.props.onPageChangeNext}
+        onPageChangePrev={this.props.onPageChangePrev}
       />
     );
   }
