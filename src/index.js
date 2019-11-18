@@ -5,8 +5,6 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter as Router } from "react-router-dom";
 
-//pull in dataset from api here and pass it in as a prop in App
-
 ReactDOM.render(
   <Router>
     <App />

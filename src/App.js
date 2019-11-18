@@ -13,7 +13,8 @@ class App extends Component {
 
     this.state = {
       page: 1,
-      countries: {}
+      countries: {},
+      url: "https://global-temperature-api.herokuapp.com/country"
     };
 
     this.handlePageChangePrev = this.handlePageChangePrev.bind(this);
@@ -22,6 +23,14 @@ class App extends Component {
 
   componentDidMount() {
     //fetches the first page of countries, which is contained within an object (to access the data do countries.data[0].country for example)
+    fetch(this.state.url)
+      .then(res => res.json())
+      .then(res => {
+        this.setState({
+          countries: res
+        });
+      })
+      .catch(err => console.log(err));
   }
 
   handlePageChangeNext(buttonEl) {
