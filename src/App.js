@@ -75,19 +75,7 @@ class App extends Component {
           <Route
             path="/add"
             render={() => {
-              <Index
-                countries={this.state.countries}
-                type="add"
-                page={this.state.page}
-                onPageChangeNext={this.handlePageChangeNext}
-                onPageChangePrev={this.handlePageChangePrev}
-              />;
-            }}
-          />
-          <Route
-            path="/add/:country"
-            render={() => {
-              <Create {...routerProps} countries={this.state.countries} />;
+              <Create />;
             }}
           />
           <Route
