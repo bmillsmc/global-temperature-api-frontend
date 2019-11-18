@@ -110,13 +110,17 @@ class App extends Component {
           <Route
             path="/country/:country"
             render={routerProps => {
-              <Country {...routerProps} countries={this.state.countries} />;
+              <Country
+                {...routerProps}
+                countries={this.state.countries}
+                url={this.state.url}
+              />;
             }}
           />
           <Route
             path="/add"
             render={() => {
-              <Create />;
+              <Create url={this.state.url} />;
             }}
           />
           <Route
@@ -140,7 +144,11 @@ class App extends Component {
           <Route
             path="/update/:country"
             render={() => {
-              <Update {...routerProps} countries={this.state.countries} />;
+              <Update
+                {...routerProps}
+                countries={this.state.countries}
+                url={this.state.url}
+              />;
             }}
           />
           <Route
@@ -158,7 +166,11 @@ class App extends Component {
           <Route
             path="/delete/:country"
             render={() => {
-              <Delete {...routerProps} countries={this.state.countries} />;
+              <Delete
+                {...routerProps}
+                countries={this.state.countries}
+                url={this.state.url}
+              />;
             }}
           />
         </main>
