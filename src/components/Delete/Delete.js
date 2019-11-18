@@ -1,13 +1,10 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./Delete.css";
 
 class Delete extends Component {
   handleYes() {
     //send delete request to api for this.props.match.params.country
-  }
-
-  handleNo() {
-    //use Link to link to the /delete route
   }
 
   render() {
@@ -18,7 +15,9 @@ class Delete extends Component {
         </h1>
         <div className="button-box">
           <input type="button" value="Yes" onClick={this.handleYes} />
-          <input type="button" value="No" onClick={this.handleNo} />
+          <Link to="/delete">
+            <input type="button" value="No" />
+          </Link>
         </div>
       </div>
     );
