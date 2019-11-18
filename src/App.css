@@ -34,6 +34,11 @@ nav {
   width: 30%;
 }
 
+nav a {
+  text-decoration: none;
+  color: black;
+}
+
 main {
   display: flex;
   flex-direction: column;
