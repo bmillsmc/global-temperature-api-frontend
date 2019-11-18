@@ -18,18 +18,12 @@ class Index extends Component {
     this.props.handlePageChangeNext(evt.target);
   }
 
-  handleCountryClick(evt) {
-    //handles when a country button is clicked, depending on props.type it sends the user to the corresponding component using Link to="/"+props.type+"/:country" which has a route on the main page for the component
-  }
-
   render() {
     let countryInputs = this.props.countries.data.map(country => {
       return (
-        <input
-          onClick={this.handleCountryClick}
-          type="button"
-          value={country.country}
-        />
+        <Link to={"/" + this.props.type + "/" + country.country}>
+          <input type="button" value={country.country} />
+        </Link>
       );
     });
     return (

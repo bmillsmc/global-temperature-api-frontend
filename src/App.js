@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
-import { Route, Link } from "react-router-dom";
+import { Route, Link, Redirect } from "react-router-dom";
 import "./App.css";
 import { tsPropertySignature } from "@babel/types";
 
@@ -117,6 +117,12 @@ class App extends Component {
             path="/add"
             render={() => {
               <Create />;
+            }}
+          />
+          <Route
+            path="/add/:country"
+            render={() => {
+              <Redirect to="/add" />;
             }}
           />
           <Route
