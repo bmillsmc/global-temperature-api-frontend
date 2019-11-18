@@ -19,13 +19,17 @@ class Index extends Component {
   }
 
   render() {
-    let countryInputs = this.props.countries.data.map(country => {
-      return (
-        <Link to={"/" + this.props.type + "/" + country.country}>
-          <input type="button" value={country.country} />
-        </Link>
-      );
-    });
+    let countryInputs;
+    if (this.props.countries.data) {
+      countryInputs = this.props.countries.data.map(country => {
+        return (
+          <Link to={"/" + this.props.type + "/" + country.country}>
+            <input type="button" value={country.country} />
+          </Link>
+        );
+      });
+    }
+
     return (
       <div className="index-box">
         <div className="country-div">{countryInputs}</div>

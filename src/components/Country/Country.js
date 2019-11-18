@@ -12,9 +12,10 @@ class Country extends Component {
 
   componentDidMount() {
     //fetch country from api here using props.match.params.country and update state
-    fetch(this.props.url + "/" + props.match.params.country)
+    fetch(this.props.url + "/" + this.props.match.params.country)
       .then(res => res.json())
       .then(res => {
+        //res could possibly be an array with one object inside in which case do res[0].json()
         this.setState({
           country: res
         });
@@ -24,8 +25,9 @@ class Country extends Component {
 
   render() {
     //TODO: implement plotly to graph temperature data for country
-    let countryString = country.stringify();
-    let countryName = country.country;
+    console.log(this.state.country);
+    let countryString = JSON.stringify(this.state.country);
+    let countryName = this.state.country.country;
     return (
       <div className="country-graph">
         <h2>{countryName}</h2>

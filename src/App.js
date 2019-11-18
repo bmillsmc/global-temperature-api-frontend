@@ -1,8 +1,12 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import { Route, Link, Redirect } from "react-router-dom";
 import "./App.css";
-import { tsPropertySignature } from "@babel/types";
+import Home from "./components/Home/Home";
+import Country from "./components/Country/Country";
+import Index from "./components/Index/Index";
+import Update from "./components/Update/Update";
+import Delete from "./components/Delete/Delete";
+import Create from "./components/Create/Create";
 
 //use react router to create routes within the page for different things
 //maybe conside making this a class for state? or maybe make index a class? need state for which page of countries you're on
@@ -99,78 +103,90 @@ class App extends Component {
             path="/"
             exact
             render={() => {
-              <Home
-                countries={this.state.countries}
-                page={this.state.page}
-                onPageChangeNext={this.handlePageChangeNext}
-                onPageChangePrev={this.handlePageChangePrev}
-              />;
+              return (
+                <Home
+                  countries={this.state.countries}
+                  page={this.state.page}
+                  onPageChangeNext={this.handlePageChangeNext}
+                  onPageChangePrev={this.handlePageChangePrev}
+                />
+              );
             }}
           />
           <Route
             path="/country/:country"
             render={routerProps => {
-              <Country
-                {...routerProps}
-                countries={this.state.countries}
-                url={this.state.url}
-              />;
+              return (
+                <Country
+                  {...routerProps}
+                  countries={this.state.countries}
+                  url={this.state.url}
+                />
+              );
             }}
           />
           <Route
             path="/add"
             render={() => {
-              <Create url={this.state.url} />;
+              return <Create url={this.state.url} />;
             }}
           />
           <Route
             path="/add/:country"
             render={() => {
-              <Redirect to="/add" />;
+              return <Redirect to="/add" />;
             }}
           />
           <Route
             path="/update"
             render={() => {
-              <Index
-                countries={this.state.countries}
-                type="update"
-                page={this.state.page}
-                onPageChangeNext={this.handlePageChangeNext}
-                onPageChangePrev={this.handlePageChangePrev}
-              />;
+              return (
+                <Index
+                  countries={this.state.countries}
+                  type="update"
+                  page={this.state.page}
+                  onPageChangeNext={this.handlePageChangeNext}
+                  onPageChangePrev={this.handlePageChangePrev}
+                />
+              );
             }}
           />
           <Route
             path="/update/:country"
-            render={() => {
-              <Update
-                {...routerProps}
-                countries={this.state.countries}
-                url={this.state.url}
-              />;
+            render={routerProps => {
+              return (
+                <Update
+                  {...routerProps}
+                  countries={this.state.countries}
+                  url={this.state.url}
+                />
+              );
             }}
           />
           <Route
             path="/delete"
             render={() => {
-              <Index
-                countries={this.state.countries}
-                type="delete"
-                page={this.state.page}
-                onPageChangeNext={this.handlePageChangeNext}
-                onPageChangePrev={this.handlePageChangePrev}
-              />;
+              return (
+                <Index
+                  countries={this.state.countries}
+                  type="delete"
+                  page={this.state.page}
+                  onPageChangeNext={this.handlePageChangeNext}
+                  onPageChangePrev={this.handlePageChangePrev}
+                />
+              );
             }}
           />
           <Route
             path="/delete/:country"
-            render={() => {
-              <Delete
-                {...routerProps}
-                countries={this.state.countries}
-                url={this.state.url}
-              />;
+            render={routerProps => {
+              return (
+                <Delete
+                  {...routerProps}
+                  countries={this.state.countries}
+                  url={this.state.url}
+                />
+              );
             }}
           />
         </main>
