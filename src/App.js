@@ -55,6 +55,23 @@ class App extends Component {
 
   handlePageChangePrev(buttonEl) {
     //takes a button element (probably an input) reference and if the next time it will be pressed shouldnt happen (ie the page number is 1) then it disables it
+    this.setState({
+      page: this.state.page--
+    });
+    fetch(this.state.url + "?page=" + this.state.page)
+      .then(res => res.json())
+      .then(res => {
+        this.setState({
+          countries: res
+        });
+        if (this.state.page === 1) {
+          buttonEl.setAttribute("disabled", "disabled");
+        }
+        buttonEl.parentNode.childNodes[
+          buttonEl.parentNode.childNodes.length - 1
+        ].removeAttribute("disabled");
+      })
+      .catch(err => console.log(err));
   }
 
   render() {
