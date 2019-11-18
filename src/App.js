@@ -78,6 +78,7 @@ class App extends Component {
               <Index
                 countries={this.state.countries}
                 type="add"
+                page={this.state.page}
                 onPageChangeNext={this.handlePageChangeNext}
                 onPageChangePrev={this.handlePageChangePrev}
               />;
@@ -95,6 +96,7 @@ class App extends Component {
               <Index
                 countries={this.state.countries}
                 type="update"
+                page={this.state.page}
                 onPageChangeNext={this.handlePageChangeNext}
                 onPageChangePrev={this.handlePageChangePrev}
               />;
@@ -112,6 +114,7 @@ class App extends Component {
               <Index
                 countries={this.state.countries}
                 type="delete"
+                page={this.state.page}
                 onPageChangeNext={this.handlePageChangeNext}
                 onPageChangePrev={this.handlePageChangePrev}
               />;
