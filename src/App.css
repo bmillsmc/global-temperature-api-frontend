@@ -28,6 +28,11 @@ header {
   justify-content: space-between;
 }
 
+header a {
+  text-decoration: none;
+  color: black;
+}
+
 nav {
   display: flex;
   justify-content: space-around;
