@@ -13,12 +13,20 @@ class App extends Component {
 
     this.state = {
       page: 1,
-      countries: []
+      countries: {}
     };
+
+    this.handlePageChangePrev = this.handlePageChangePrev.bind(this);
+    this.handlePageChangeNext = this.handlePageChangeNext.bind(this);
+  }
+
+  componentDidMount() {
+    //fetches the first page of countries, which is contained within an object (to access the data do countries.data[0].country for example)
   }
 
   handlePageChangeNext(buttonEl) {
-    //takes a button element (probably an input) reference and if the next time it will be pressed shouldnt happen (ie there is no next page) then it disables it
+    //TODO: merge these into one method, handlePageChange(), that checks for the value of buttons text, if its "prev" (use tolowercase) then it subtract and does what the prev button is supposed to do ie disable and if its "next" then vice versa
+    //takes a button element (probably an input) reference and if the next time it will be pressed shouldnt happen (ie there is no next page) then it disables it. also increments the page and fetches the next 10 countries into state
   }
 
   handlePageChangePrev(buttonEl) {
@@ -65,7 +73,7 @@ class App extends Component {
             }}
           />
           <Route
-            path="/add" //TODO: change all the indexs for these into their respective component names. Create an index like the ones displayed here within the components
+            path="/add"
             render={() => {
               <Index
                 countries={this.state.countries}
@@ -73,6 +81,12 @@ class App extends Component {
                 onPageChangeNext={this.handlePageChangeNext}
                 onPageChangePrev={this.handlePageChangePrev}
               />;
+            }}
+          />
+          <Route
+            path="/add/:country"
+            render={() => {
+              <Create {...routerProps} countries={this.state.countries} />;
             }}
           />
           <Route
@@ -87,6 +101,12 @@ class App extends Component {
             }}
           />
           <Route
+            path="/update/:country"
+            render={() => {
+              <Update {...routerProps} countries={this.state.countries} />;
+            }}
+          />
+          <Route
             path="/delete"
             render={() => {
               <Index
@@ -95,6 +115,12 @@ class App extends Component {
                 onPageChangeNext={this.handlePageChangeNext}
                 onPageChangePrev={this.handlePageChangePrev}
               />;
+            }}
+          />
+          <Route
+            path="/delete/:country"
+            render={() => {
+              <Delete {...routerProps} countries={this.state.countries} />;
             }}
           />
         </main>
