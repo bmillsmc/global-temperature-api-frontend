@@ -69,7 +69,7 @@ class App extends Component {
           <Route
             path="/country/:country"
             render={routerProps => {
-              <Country {...routerProps} />;
+              <Country {...routerProps} countries={this.state.countries} />;
             }}
           />
           <Route
