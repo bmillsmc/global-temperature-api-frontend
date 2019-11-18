@@ -2,6 +2,10 @@
   "name": "global-temperature-api-frontend",
   "version": "0.1.0",
   "private": true,
+<<<<<<< HEAD
+=======
+  "homepage": "https://bmillsmc.github.io/global-temperature-api-frontend/src",
+>>>>>>> parent of b3a72ea... deployed to github pages
   "dependencies": {
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
